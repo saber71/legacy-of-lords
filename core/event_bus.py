@@ -16,7 +16,7 @@ class Event(Generic[Payload], abc.ABC):
     - stoppable: bool类型，默认为True，表示事件是否可以被停止传播。
     """
 
-    def __init__(self, data: Payload, stoppable: bool = True):
+    def __init__(self, data: Payload, stoppable: bool = False):
         # 初始化事件的名称、数据和是否可停止传播的属性
         self.name = self.__class__.__name__
         self.data = data

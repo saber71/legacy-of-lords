@@ -31,12 +31,14 @@ def __get_list(key_type: str):
 
 
 # 根据键获取值，如果键不存在，则返回None
-def get(key: Key) -> Optional[Value]:
-    return _dict.get(repr(key))
+def get(key: Union[Key, str]) -> Optional[Value]:
+    if not isinstance(key, str):
+        key = str(key)
+    return _dict.get(key)
 
 
 # 根据键获取值，如果键不存在，则抛出ValueError异常
-def fetch(key: Key) -> Value:
+def fetch(key: Union[Key, str]) -> Value:
     result = get(key)
     if result is None:
         raise ValueError(f"Entity {repr(key)} not found")
