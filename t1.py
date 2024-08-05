@@ -1,3 +1,5 @@
-from modules import modules
+from datetime import datetime, timedelta
 
-print(modules[0].name)
+d=datetime(867,1,2)
+d=d+timedelta(days=400)
+print(d.strftime("%Y-%m-%d %H:%M:%S"),d.year)
